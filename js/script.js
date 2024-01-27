@@ -3,16 +3,18 @@ const btnfechar = document.querySelector('.btn__fechar');
 const msgErro = document.querySelector('.modal__msg_erro');
 const msgsucesso = document.querySelector('.modal__msg_sucesso');
 const modalEnviar = document.querySelector('.modal__enviar')
+const btnEnviar = document.querySelector('.btn__enviar')
 
 const validarDados = ({ nome, email }) => {
     // validar dados
-    const nomeValido = nome && nome.length <= 3
-    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$/
+    const nomeValido = nome && nome.length > 3
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     const emailValido = email && emailRegex.test(email)
 
     return {
-        nomeValido,
-        emailValido
+        nome: nomeValido,
+        email: emailValido
     }
 }
 
@@ -24,9 +26,9 @@ const pegarDados = () => {
         email: document.querySelector('.input__email').value
     }
 
-    const { nomeValido, emailValido } = validarDados(dados)
+    const { nome, email } = validarDados(dados)
 
-    const resultado = nomeValido && emailValido ? 'sucesso' : 'erro'
+    const resultado = nome && email ? 'sucesso' : 'erro'
 
     document.querySelector('form').reset()
 
@@ -35,29 +37,20 @@ const pegarDados = () => {
 }
 
 const formatarModal = (statusRegister) => {
-    if (statusRegister === 'sucesso') {
-        msgErro.style.display = 'none'
-        msgsucesso.style.display = "block"
-        btnfechar.classList.add('bg__sucesso')
-        btnfechar.classList.remove('bg__erro')
+    
+    msgsucesso.style.display = (statusRegister === 'sucesso') ? 'block' : 'none'
+    msgErro.style.display = (statusRegister === 'erro') ? 'block' : 'none'
+    btnfechar.classList.add((statusRegister === 'sucesso') ? 'bg__sucesso' : 'bg__erro')
+    btnfechar.classList.remove((statusRegister === 'sucesso') ? 'bg__erro' : 'bg__sucesso')
 
-    }
-    if (statusRegister === 'erro') {
-        msgsucesso.style.display = 'none'
-        msgErro.style.dispay = "block"
-        btnfechar.classList.add('bg__erro')
-        btnfechar.classList.remove('bg__sucesso')
-    }
 }
 
 const mostrarModal = (statusRegister) => {
-    // formatação codisional da janela modal
-    
     formatarModal(statusRegister)
     modalEnviar.showModal()
 }
 
-document.querySelector('.btn__enviar').addEventListener("click", (e) => {
+btnEnviar.addEventListener("click", (e) => {
     e.preventDefault();
     mostrarModal(pegarDados())
 })

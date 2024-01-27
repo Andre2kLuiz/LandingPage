@@ -30,7 +30,10 @@
     <header>
 
         <span class="header__logo">
-            <a href="#">📰 AndréLuiz</a>
+            <a href="#">
+                <span class="logo">📰</span> 
+                <span class="texto">AndréLuiz</span>
+            </a>
         </span>
 
         <button type="button" class="btn btn__comprar">COMPRAR EBOOK</button>
@@ -45,17 +48,17 @@
 
             <p> Preencha os campos para receber notícias sobre programação</p>
 
-            <form action="">
+            <form action="" autocomplete="off">
 
                 <div class="inputs">
                     <label for="input__nome">Nome</label>
-                    <input type="text" id="input__nome" class="input__nome" autofocus>
+                    <input type="text" id="input__nome" class="input__nome" autofocus autocomplete="off">
                     <span class="erro__nome erro"></span>
                 </div>
 
                 <div class="inputs">
                     <label for="input__email">E-mail</label>
-                    <input type="text" id="input__email" class="input__email">
+                    <input type="text" id="input__email" class="input__email" autocomplete="off">
                     <span class="erro__email erro"></span>
                 </div>
 
