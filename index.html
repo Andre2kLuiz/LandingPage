@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page 📰 Newsletter</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="./image/favicon.ico" type="image/x-icon" />
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- modal sucesso ou erro-->
+    <dialog class="modal__enviar">  <!--pode por open para aparecer p dialog-->
+
+        <div class="modal__content">
+            <p class="modal__msg_sucesso">E-mail cadastrado com <span class="sucesso">sucesso</span>!</p>
+            <p class="modal__msg_erro">E-mail  <span class="erro">não</span> cadastrado!</p>
+            <button type="button" class="btn btn__fechar">Fechar</button>
+        </div>
+
+    </dialog>
+
+    <header>
+
+        <span class="header__logo">
+            <a href="#">📰 AndréLuiz</a>
+        </span>
+
+        <button type="button" class="btn btn__comprar">COMPRAR EBOOK</button>
+
+    </header>
+
+    <main>
+        <section class="section__content">
+            <h2>Seja bem-vindo a sua melhor Newsletter</h2>
+
+            <h3> Fique por dentro de todas as novidades</h3>
+
+            <p> Preencha os campos para receber notícias sobre programação</p>
+
+            <form action="">
+
+                <div class="inputs">
+                    <label for="input__nome">Nome</label>
+                    <input type="text" id="input__nome" class="input__nome" autofocus>
+                    <span class="erro__nome erro"></span>
+                </div>
+
+                <div class="inputs">
+                    <label for="input__email">E-mail</label>
+                    <input type="text" id="input__email" class="input__email">
+                    <span class="erro__email erro"></span>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn btn__enviar">Enviar</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        Produzido por André Luiz &copy; 2024 | Inpirado no desafio eFront do Iyri Code
+    </footer>
+</body>
+</html>
